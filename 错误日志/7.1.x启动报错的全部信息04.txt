@@ -1,0 +1,128 @@
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/8.5.32
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Jun 20 2018 19:50:35 UTC
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         8.5.32.0
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 10
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            10.0
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             D:\Java\jdk1.8.0_172\jre
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           1.8.0_172-b11
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         D:\Tomcat 8.5
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         D:\Tomcat 8.5
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=D:\Tomcat 8.5
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=D:\Tomcat 8.5
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dwtp.deploy=D:\Tomcat 8.5\webapps
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.endorsed.dirs=D:\Tomcat 8.5\endorsed
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.library.path=D:\Java\jdk1.8.0_172\bin;D:\Tomcat 8.5\bin
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dfile.encoding=UTF-8
+十月 08, 2018 11:18:53 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_172\bin;D:\Tomcat 8.5\bin]
+十月 08, 2018 11:18:53 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-nio-8080"]
+十月 08, 2018 11:18:53 下午 org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+信息: Using a shared selector for servlet write/read
+十月 08, 2018 11:18:53 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-nio-8009"]
+十月 08, 2018 11:18:53 下午 org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+信息: Using a shared selector for servlet write/read
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 1282 ms
+十月 08, 2018 11:18:53 下午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service [Catalina]
+十月 08, 2018 11:18:53 下午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/8.5.32
+十月 08, 2018 11:18:53 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\bank7.0]
+十月 08, 2018 11:18:56 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 08, 2018 11:18:56 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+十月 08, 2018 11:18:59 下午 org.apache.catalina.core.StandardContext filterStart
+严重: Exception starting filter [OpenSessionInViewFilter]
+java.lang.NoClassDefFoundError: org/hibernate/FlushMode
+	at org.springframework.orm.hibernate3.support.OpenSessionInViewFilter.<init>(OpenSessionInViewFilter.java:102)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:151)
+	at org.apache.catalina.core.ApplicationFilterConfig.getFilter(ApplicationFilterConfig.java:264)
+	at org.apache.catalina.core.ApplicationFilterConfig.<init>(ApplicationFilterConfig.java:108)
+	at org.apache.catalina.core.StandardContext.filterStart(StandardContext.java:4637)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5282)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:754)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:730)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:734)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1140)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1875)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ClassNotFoundException: org.hibernate.FlushMode
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1309)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1137)
+	... 21 more
+十月 08, 2018 11:18:59 下午 org.apache.catalina.core.StandardContext startInternal
+严重: One or more Filters failed to start. Full details will be found in the appropriate container log file
+十月 08, 2018 11:18:59 下午 org.apache.catalina.core.StandardContext startInternal
+严重: Context [/bank7.0] startup failed due to previous errors
+十月 08, 2018 11:18:59 下午 org.apache.catalina.core.ApplicationContext log
+信息: Closing Spring root WebApplicationContext
+十月 08, 2018 11:18:59 下午 org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+警告: The web application [bank7.0] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.Object.wait(Object.java:502)
+ java.util.TimerThread.mainLoop(Timer.java:526)
+ java.util.TimerThread.run(Timer.java:505)
+十月 08, 2018 11:18:59 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\bank7.0] has finished in [5,528] ms
+十月 08, 2018 11:18:59 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\docs]
+十月 08, 2018 11:18:59 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 08, 2018 11:18:59 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\docs] has finished in [631] ms
+十月 08, 2018 11:18:59 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\manager]
+十月 08, 2018 11:19:00 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 08, 2018 11:19:00 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\manager] has finished in [707] ms
+十月 08, 2018 11:19:00 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\ROOT]
+十月 08, 2018 11:19:01 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 08, 2018 11:19:01 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\ROOT] has finished in [736] ms
+十月 08, 2018 11:19:01 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\springMVC_04_exception]
+十月 08, 2018 11:19:02 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 08, 2018 11:19:02 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\springMVC_04_exception] has finished in [1,525] ms
+十月 08, 2018 11:19:02 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-nio-8080"]
+十月 08, 2018 11:19:02 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-nio-8009"]
+十月 08, 2018 11:19:02 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 9212 ms

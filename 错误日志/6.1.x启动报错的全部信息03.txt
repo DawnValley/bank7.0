@@ -1,0 +1,274 @@
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/8.5.32
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Jun 20 2018 19:50:35 UTC
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         8.5.32.0
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 10
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            10.0
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             D:\Java\jdk1.8.0_172\jre
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           1.8.0_172-b11
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         D:\Tomcat 8.5
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         D:\Tomcat 8.5
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=D:\Tomcat 8.5
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=D:\Tomcat 8.5
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dwtp.deploy=D:\Tomcat 8.5\webapps
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.endorsed.dirs=D:\Tomcat 8.5\endorsed
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.library.path=D:\Java\jdk1.8.0_172\bin;D:\Tomcat 8.5\bin
+十月 04, 2018 9:22:19 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dfile.encoding=UTF-8
+十月 04, 2018 9:22:19 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_172\bin;D:\Tomcat 8.5\bin]
+十月 04, 2018 9:22:20 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-nio-8080"]
+十月 04, 2018 9:22:20 下午 org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+信息: Using a shared selector for servlet write/read
+十月 04, 2018 9:22:20 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-nio-8009"]
+十月 04, 2018 9:22:20 下午 org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+信息: Using a shared selector for servlet write/read
+十月 04, 2018 9:22:20 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 1319 ms
+十月 04, 2018 9:22:20 下午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service [Catalina]
+十月 04, 2018 9:22:20 下午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/8.5.32
+十月 04, 2018 9:22:20 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\bank6.0]
+十月 04, 2018 9:22:25 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 04, 2018 9:22:25 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+21:22:27,677  INFO Environment:514 - Hibernate 3.2.6
+21:22:27,685  INFO Environment:547 - hibernate.properties not found
+21:22:27,689  INFO Environment:681 - Bytecode provider name : cglib
+21:22:27,696  INFO Environment:598 - using JDK 1.4 java.sql.Timestamp handling
+21:22:27,802  INFO Configuration:1447 - configuring from url: file:/D:/Tomcat%208.5/webapps/bank6.0/WEB-INF/hibernate.cfg.xml
+21:22:27,916  INFO Configuration:559 - Reading mappings from resource : com/cx/bank/model/UserBean.hbm.xml
+21:22:28,018  INFO HbmBinder:300 - Mapping class: com.cx.bank.mode1.UserBean -> users
+21:22:28,043 ERROR ContextLoader:208 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorManagerImp1' defined in ServletContext resource [/WEB-INF/applicationContext-beans.xml]: Cannot resolve reference to bean 'sessionFactory' while setting bean property 'sessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext-common.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:297)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1055)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:511)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:450)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:290)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:287)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:189)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:557)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:842)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:416)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:261)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:192)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4792)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5256)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:754)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:730)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:734)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1140)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1875)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorManagerImp1' defined in ServletContext resource [/WEB-INF/applicationContext-beans.xml]: Cannot resolve reference to bean 'sessionFactory' while setting bean property 'sessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext-common.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1305)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:511)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:450)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:290)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:287)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:432)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:406)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:538)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:147)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:84)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:294)
+	... 26 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext-common.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1401)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:512)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:450)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:290)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:287)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:189)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 41 more
+Caused by: org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.hibernate.cfg.Configuration.addResource(Configuration.java:575)
+	at org.hibernate.cfg.Configuration.parseMappingElement(Configuration.java:1593)
+	at org.hibernate.cfg.Configuration.parseSessionFactory(Configuration.java:1561)
+	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:1540)
+	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:1514)
+	at org.hibernate.cfg.Configuration.configure(Configuration.java:1449)
+	at org.springframework.orm.hibernate3.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:642)
+	at org.springframework.orm.hibernate3.AbstractSessionFactoryBean.afterPropertiesSet(AbstractSessionFactoryBean.java:211)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1460)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1398)
+	... 48 more
+Caused by: org.hibernate.MappingException: class com.cx.bank.mode1.UserBean not found while looking for property: id
+	at org.hibernate.util.ReflectHelper.reflectedPropertyClass(ReflectHelper.java:74)
+	at org.hibernate.mapping.SimpleValue.setTypeUsingReflection(SimpleValue.java:279)
+	at org.hibernate.cfg.HbmBinder.bindSimpleId(HbmBinder.java:401)
+	at org.hibernate.cfg.HbmBinder.bindRootPersistentClassCommonValues(HbmBinder.java:334)
+	at org.hibernate.cfg.HbmBinder.bindRootClass(HbmBinder.java:273)
+	at org.hibernate.cfg.HbmBinder.bindRoot(HbmBinder.java:144)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:675)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:510)
+	at org.hibernate.cfg.Configuration.addResource(Configuration.java:572)
+	... 57 more
+Caused by: java.lang.ClassNotFoundException: com.cx.bank.mode1.UserBean
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1309)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1137)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.hibernate.util.ReflectHelper.classForName(ReflectHelper.java:100)
+	at org.hibernate.util.ReflectHelper.reflectedPropertyClass(ReflectHelper.java:70)
+	... 65 more
+十月 04, 2018 9:22:28 下午 org.apache.catalina.core.StandardContext listenerStart
+严重: Exception sending context initialized event to listener instance of class [org.springframework.web.context.ContextLoaderListener]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorManagerImp1' defined in ServletContext resource [/WEB-INF/applicationContext-beans.xml]: Cannot resolve reference to bean 'sessionFactory' while setting bean property 'sessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext-common.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:297)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1055)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:511)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:450)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:290)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:287)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:189)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:557)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:842)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:416)
+	at org.springframework.web.context.ContextLoader.createWebApplicationContext(ContextLoader.java:261)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:192)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:47)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4792)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5256)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:754)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:730)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:734)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1140)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1875)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorManagerImp1' defined in ServletContext resource [/WEB-INF/applicationContext-beans.xml]: Cannot resolve reference to bean 'sessionFactory' while setting bean property 'sessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext-common.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1305)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:511)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:450)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:290)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:287)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:432)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:406)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:538)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:147)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:84)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:294)
+	... 26 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext-common.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1401)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:512)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:450)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:290)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:287)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:189)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 41 more
+Caused by: org.hibernate.InvalidMappingException: Could not parse mapping document from resource com/cx/bank/model/UserBean.hbm.xml
+	at org.hibernate.cfg.Configuration.addResource(Configuration.java:575)
+	at org.hibernate.cfg.Configuration.parseMappin
+gElement(Configuration.java:1593)
+	at org.hibernate.cfg.Configuration.parseSessionFactory(Configuration.java:1561)
+	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:1540)
+	at org.hibernate.cfg.Configuration.doConfigure(Configuration.java:1514)
+	at org.hibernate.cfg.Configuration.configure(Configuration.java:1449)
+	at org.springframework.orm.hibernate3.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:642)
+	at org.springframework.orm.hibernate3.AbstractSessionFactoryBean.afterPropertiesSet(AbstractSessionFactoryBean.java:211)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1460)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1398)
+	... 48 more
+Caused by: org.hibernate.MappingException: class com.cx.bank.mode1.UserBean not found while looking for property: id
+	at org.hibernate.util.ReflectHelper.reflectedPropertyClass(ReflectHelper.java:74)
+	at org.hibernate.mapping.SimpleValue.setTypeUsingReflection(SimpleValue.java:279)
+	at org.hibernate.cfg.HbmBinder.bindSimpleId(HbmBinder.java:401)
+	at org.hibernate.cfg.HbmBinder.bindRootPersistentClassCommonValues(HbmBinder.java:334)
+	at org.hibernate.cfg.HbmBinder.bindRootClass(HbmBinder.java:273)
+	at org.hibernate.cfg.HbmBinder.bindRoot(HbmBinder.java:144)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:675)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:510)
+	at org.hibernate.cfg.Configuration.addResource(Configuration.java:572)
+	... 57 more
+Caused by: java.lang.ClassNotFoundException: com.cx.bank.mode1.UserBean
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1309)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1137)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.hibernate.util.ReflectHelper.classForName(ReflectHelper.java:100)
+	at org.hibernate.util.ReflectHelper.reflectedPropertyClass(ReflectHelper.java:70)
+	... 65 more
+
+十月 04, 2018 9:22:28 下午 org.apache.catalina.core.StandardContext startInternal
+严重: One or more listeners failed to start. Full details will be found in the appropriate container log file
+十月 04, 2018 9:22:28 下午 org.apache.catalina.core.StandardContext startInternal
+严重: Context [/bank6.0] startup failed due to previous errors
+十月 04, 2018 9:22:28 下午 org.apache.catalina.core.ApplicationContext log
+信息: Closing Spring root WebApplicationContext
+十月 04, 2018 9:22:28 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\bank6.0] has finished in [7,661] ms
+十月 04, 2018 9:22:28 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\docs]
+十月 04, 2018 9:22:28 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 04, 2018 9:22:28 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\docs] has finished in [663] ms
+十月 04, 2018 9:22:28 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\manager]
+十月 04, 2018 9:22:29 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 04, 2018 9:22:29 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\manager] has finished in [569] ms
+十月 04, 2018 9:22:29 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory [D:\Tomcat 8.5\webapps\ROOT]
+十月 04, 2018 9:22:29 下午 org.apache.jasper.servlet.TldScanner scanJars
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+十月 04, 2018 9:22:29 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory [D:\Tomcat 8.5\webapps\ROOT] has finished in [635] ms
+十月 04, 2018 9:22:29 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-nio-8080"]
+十月 04, 2018 9:22:29 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-nio-8009"]
+十月 04, 2018 9:22:29 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 9610 ms

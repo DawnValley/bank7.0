@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cx.bank.mode1">
+    <class name="UserBean" table="users">
+        <id name="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="username"/>
+        <property name="password"/>
+        <property name="money"/>
+        <property name="conditions"/>
+        <property name="udate"/>
+    </class>
+</hibernate-mapping>
+ 

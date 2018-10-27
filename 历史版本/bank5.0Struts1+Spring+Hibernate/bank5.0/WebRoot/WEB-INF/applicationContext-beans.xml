@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+    
+    <!-- <import resource="applicationContext-common.xml"/> -->
+    
+    <bean id="ManagerImp1" class="com.cx.bank.manager.ManagerImp1">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="userDao" ref="userDao"/>
+        <property name="logManager" ref="logManager"/>
+    </bean>
+    
+    <bean id="administratorManagerImp1" class="com.cx.administrator.manager.AdministratorManagerImp1">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="logManager" ref="logManager"/>
+    </bean>
+    
+    <bean id="userDao" class="com.cx.bank.dao.SQLFileDaoImp">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="logManager" ref="logManager"/>
+    </bean>
+    
+    <bean id="logManager" class="com.cx.bank.manager.LogManagerImp1">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <!-- <bean id="stateFilter" class="com.cx.bank.filter.StateFilter">
+        <property name="manager" ref="ManagerImp1"/>
+    </bean> -->
+    
+    <!--     配置切面类
+    <bean id="AspectHandler" class="com.cx.bank.aspect.AspectHandler">
+        <property name="manager" ref="ManagerImp1"/>
+    </bean> -->
+</beans>

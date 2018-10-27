@@ -1,0 +1,58 @@
+<html>
+<head>
+	<script language="javascript">
+		function click()
+		{
+			var username = document.registerForm.username.value;
+			var password = document.registerForm.password.value;
+			var password2 = document.registerForm.password2.value;
+			var age = document.registerForm.age.value;
+			if(document.registerForm.username.value == "")
+			{
+				alert("请输入用户名");
+				return false;
+			}
+			if(document.registerForm.password.value == "")
+			{
+				alert("请输入密码");
+				return false;
+			}
+			if(document.registerForm.password2.value == "")
+			{
+				alert("请输入确定密码");
+				return false;
+			}
+			if(password != password2)
+			{
+				alert("密码不匹配");
+				return false;
+			}
+			if(age == "")
+			{
+				alert("请输入年龄");
+				return false;
+			}
+			document.registerForm.submit();
+			
+		}
+	</script>
+	<title>注册</title>
+</head>
+<body>
+<center>
+	<form name="registerForm" action="registerServlet" method="post">
+	<table border="1">
+		<tr>用户信息</tr>
+		<tr><td>用户名</td><td><input type="text" name="username"></td></tr>
+		<tr><td>密  码</td><td><input type="password" name="password"></td></tr>
+		<tr><td>确定密码</td><td><input type="password" name="password2"></td></tr>
+		<tr><td>年龄</td><td><input type="text" name="age"></td></tr>
+		<tr>
+			<td><input type="button" name="button" value="提交" onclick="click()"></td>
+			<td><input type="reset" value="重置"></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</center>
+</html>

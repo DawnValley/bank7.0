@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+    
+    <!-- 注册登录 -->
+    <bean name="/RegisterLoginAction" class="com.cx.bank.action.RegisterLoginAction" scope="prototype">
+        <property name="managerDao" ref="ManagerImp1"></property>
+    </bean>
+    <!-- 管理员 -->
+    <bean name="/Administrator/AdministratorAction" class="com.cx.administrator.action.AdministratorAction" scope="prototype">
+        <property name="manager" ref="administratorManagerImp1"></property>
+    </bean>
+    <!-- 语言 -->
+    <bean name="/ChangeLanguageAction" class="com.cx.bank.action.ChangeLanguageAction" scope="prototype"/>
+    <!-- 银行业务 -->
+    <bean name="/BankBusiness/BankBusinessAction" class="com.cx.bank.action.BankBusinessAction" scope="prototype">
+        <property name="managerDao" ref="ManagerImp1"></property>
+    </bean>
+    
+</beans>

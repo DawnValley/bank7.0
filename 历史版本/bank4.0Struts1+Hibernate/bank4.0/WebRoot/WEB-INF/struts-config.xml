@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+    <form-beans>
+        <form-bean name="LoginForm" type="com.cx.bank.form.LoginForm"></form-bean>
+        <form-bean name="BusinessForm" type="com.cx.bank.form.BusinessForm"></form-bean>
+    </form-beans>
+    
+    <!-- 银行系统异常类配置 -->
+    <global-exceptions>
+        <exception key="error.exception" type="com.cx.bank.util.BankPublicException"
+            path="/error.jsp" 
+            handler="com.cx.bank.util.BankExceptionHandler">
+        </exception>
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="login" path="/login.jsp" redirect="true"></forward>
+        <forward name="error" path="/error.jsp"></forward>
+        <!-- <forward name="operationError" path="/WEB-INF/BankBusiness/operationError.jsp"></forward> -->
+    </global-forwards>
+
+    <action-mappings>
+        <!-- 登录和注册及访问页面的dispatchaction的配置 -->
+        <action path="/RegisterLoginAction" type="com.cx.bank.action.RegisterLoginAction"
+            name="LoginForm" scope="request" parameter="command">
+            <forward name="registerSuccess" path="/registerSuccess.jsp"
+                redirect="true"></forward>
+            <forward name="loginSuccess" path="/WEB-INF/BankBusiness/system.jsp"></forward>
+            <forward name="operationError" path="/WEB-INF/BankBusiness/operationError.jsp"></forward>
+            <forward name="show_top" path="/WEB-INF/BankBusiness/show_top.jsp"></forward>
+            <forward name="show_left" path="/WEB-INF/BankBusiness/show_left.jsp"></forward>
+            <forward name="show_index" path="/WEB-INF/BankBusiness/show_index.jsp"></forward>
+        </action>
+
+        <!-- 语言设置action的配置 -->
+        <action path="/ChangeLanguageAction" type="com.cx.bank.action.ChangeLanguageAction"
+            scope="request">
+        </action>
+
+        <action path="/BankBusiness/BankBusinessAction" type="com.cx.bank.action.BankBusinessAction"
+            name="BusinessForm" scope="request" parameter="command" input="/login.jsp">
+            
+            <exception key="bank.java.error.withDrawals.Non-positive_number" 
+            type="com.cx.bank.util.InvalidWithDrawalstException" path="/error.jsp"></exception>
+            <exception key="bank.java.error.withDrawals.exceed" 
+            type="com.cx.bank.util.AccountOverDrawnException" path="/error.jsp"></exception>
+            <exception key="bank.java.error.deposit.exceed" 
+            type="com.cx.bank.util.InvalidDepositException" path="/error.jsp"></exception>
+            
+            <forward name="queryResults" path="/WEB-INF/BankBusiness/queryResults.jsp"></forward>
+            <forward name="transactionRecord" path="/WEB-INF/BankBusiness/transactionRecord.jsp"></forward>
+            <forward name="logout" path="/logout.jsp" redirect="true"></forward>
+            <forward name="withDrawals" path="/WEB-INF/BankBusiness/withDrawals.jsp"></forward>
+            <forward name="deposit" path="/WEB-INF/BankBusiness/deposit.jsp"></forward>
+            <forward name="transfer" path="/WEB-INF/BankBusiness/transfer.jsp"></forward>
+        </action>
+        <!-- <action path="/LoginAction" type="com.cx.bank.action.LoginAction" 
+            name="LoginForm" scope="request"> <forward name="loginSuccess" path="system.jsp" 
+            redirect="true"></forward> </action> -->
+    </action-mappings>
+
+    <!-- 国际化资源配置文件 -->
+    <message-resources parameter="res.MessageResources" />
+</struts-config>

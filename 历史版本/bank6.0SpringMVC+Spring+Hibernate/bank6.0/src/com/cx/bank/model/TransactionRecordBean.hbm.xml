@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cx.bank.model">
+    <class name="TransactionRecordBean" table="transaction_record">
+        <id name="bId">
+            <generator class="native"></generator>
+        </id>
+        <many-to-one name="users" column="userId" cascade="delete" not-null="true"/>
+        <property name="toName" not-null="true"/>
+        <property name="bMoney" not-null="true"/>
+        <property name="transactionType" not-null="true"/>
+        <property name="bDate"/>
+    </class>
+</hibernate-mapping>
+ 

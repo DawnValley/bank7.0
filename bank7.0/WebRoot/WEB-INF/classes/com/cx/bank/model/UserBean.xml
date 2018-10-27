@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间 -->
+<mapper namespace="com.cx.bank.dao.OperationMapper">
+    
+    <!-- 添加用户 -->
+	<insert id="addUser" parameterType="com.cx.bank.model.UserBean" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO `users`(username,realName,sex,email,money,conditions,udate) 
+			VALUES(#{username},#{realName},#{sex},#{email},#{money},#{conditions},#{udate});
+		]]>
+	</insert>
+	
+	<!-- 根据用户名查询数据的SQL语句 -->
+    <select id="selectUserByName" parameterType="String" resultType="com.cx.bank.model.UserBean">
+        <![CDATA[
+            SELECT * FROM `users` WHERE username = #{username}
+        ]]>
+    </select>
+    <!-- 根据用户id查询数据的SQL语句 -->
+    <select id="selectUserById" parameterType="int" resultType="com.cx.bank.model.UserBean">
+       <![CDATA[
+            SELECT * FROM `users` WHERE id = #{id}
+       ]]>
+    </select>
+    
+    <!-- 要写在另一个xml里？？？ -->
+    <resultMap id="resultListUsers" type="com.cx.bank.model.UserBean" >
+        <id property="id" column="id"/>
+        <result property="username" column="username" />
+        <result property="realName" column="realName" />
+        <result property="sex" column="sex" />
+        <result property="email" column="email" />
+        <result property="money" column="money" />
+        <result property="conditions" column="conditions" />
+        <result property="udate" column="udate" />
+	</resultMap>
+	
+	<!-- 更新用户数据 -->
+	<update id="updateUser" parameterType="com.cx.bank.model.UserBean">
+	    <![CDATA[
+            UPDATE users SET money=#{money},conditions=#{conditions} WHERE id=#{id}
+        ]]>
+	</update>
+	
+	<!-- 取得指定范围的用户记录的记录数 -->
+    <select id="selectUserTotalRecords" parameterType="com.cx.bank.model.QueryObject" resultType="long">
+        <![CDATA[
+	        SELECT COUNT(*) FROM `users` 
+	    ]]>    
+        <if test="queryStr != null and queryStr != ''">
+            <![CDATA[
+                WHERE conditions=#{queryStr}
+            ]]>
+        </if>
+        
+    </select>
+    <!-- 取得指定范围的用户信息 -->
+    <select id="selectAllUserInformation" parameterType="com.cx.bank.model.QueryObject" resultMap="resultListUsers">
+        <![CDATA[
+            SELECT * FROM `users`
+        ]]> 
+        
+        <if test="queryStr != null and queryStr != ''">
+            <![CDATA[
+                WHERE conditions=#{queryStr}
+            ]]> 
+        </if>
+        <![CDATA[
+	        ORDER BY id 
+	        LIMIT #{pageNo},#{pageSize}
+        ]]> 
+    </select>
+    
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

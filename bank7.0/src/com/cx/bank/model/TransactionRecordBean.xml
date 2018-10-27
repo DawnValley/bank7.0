@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间 -->
+<mapper namespace="com.cx.bank.dao.OperationMapper">
+
+	<!-- 添加交易记录 -->
+	<insert id="addTransactionRecords" parameterType="com.cx.bank.model.TransactionRecordBean"
+		useGeneratedKeys="true" keyProperty="bId">
+		<![CDATA[
+			INSERT INTO `transaction_record`(userId,toName,bMoney,transactionType,bDate)
+			VALUES(#{users.id},#{toName},#{bMoney},#{transactionType},#{bDate});
+		]]>
+	</insert>
+
+	<!-- 取得指定的交易记录的记录数 -->
+	<select id="selectTotalRecords" parameterType="com.cx.bank.model.QueryObject"
+		resultType="long">
+	    <![CDATA[
+		    SELECT COUNT(*) FROM `transaction_record` WHERE userId = #{id}
+		]]>
+	
+		<if test="queryStr != null and queryStr != ''">
+	        <![CDATA[
+                AND (transaction_record.toName LIKE CONCAT('%','${queryStr}','%') 
+                OR transaction_record.bMoney LIKE CONCAT('%','${queryStr}','%') 
+                OR transaction_record.transactionType LIKE CONCAT('%','${queryStr}','%')) 
+	         ]]>
+		</if>
+
+	</select>
+
+	<!-- 返回交易记录的list -->
+	<resultMap id="resultListTransactionRecord" type="com.cx.bank.model.TransactionRecordBean">
+		<id property="bId" column="bId" />
+		<result property="toName" column="toName" />
+		<result property="bMoney" column="bMoney" />
+		<result property="transactionType" column="transactionType" />
+		<result property="bDate" column="bDate" />
+		<association property="users" javaType="com.cx.bank.model.UserBean"
+			resultMap="resultListUsers" />
+	</resultMap>
+
+	<!-- 查询指定的交易记录 -->
+	<select id="selectAllTransactionRecord" parameterType="com.cx.bank.model.QueryObject"
+		resultMap="resultListTransactionRecord">
+        <![CDATA[
+	        SELECT transaction_record.bId,transaction_record.userId,
+			transaction_record.toName,transaction_record.bMoney,
+			transaction_record.transactionType,transaction_record.bDate 
+			FROM users,transaction_record 
+			WHERE users.id=transaction_record.userId
+			AND users.id = #{id} 
+		]]>
+
+		<if test="queryStr != null and queryStr != ''">
+         <![CDATA[
+	         AND (transaction_record.toName LIKE CONCAT('%','${queryStr}','%') 
+             OR transaction_record.bMoney LIKE CONCAT('%','${queryStr}','%') 
+             OR transaction_record.transactionType LIKE CONCAT('%','${queryStr}','%')) 
+         ]]>
+		</if>
+        
+        <![CDATA[
+	        ORDER BY transaction_record.bId 
+	        LIMIT #{pageNo},#{pageSize}
+        ]]>
+	</select>
+
+</mapper>
+ 

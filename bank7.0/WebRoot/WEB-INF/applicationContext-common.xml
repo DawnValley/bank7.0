@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<!-- 配数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>root</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/userbase</value>
+		</property>
+	</bean>
+
+	<!-- 配置sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!--dataSource属性指定要用到的连接池 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 加载mybatis配置文件，仅打印sql语句 -->
+		<property name="configLocation" value="WEB-INF/mybatis-config.xml"></property>
+		<!--所有实体类的映射文件 -->
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:com/cx/bank/model/*.xml</value>
+				<value>classpath:com/cx/administrator/model/*.xml</value>
+			</list>
+		</property> 
+	</bean>
+	
+	<!--配置映射器 -->
+	<bean id="mapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	   <property name="mapperInterface" value="com.cx.bank.dao.OperationMapper"/>
+	</bean>
+
+    <!-- 事务管理器    mabatis完全不用，不考虑 -->
+	<!-- <bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+	
+	
+	<!-- 配置sessionFactory -->
+	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>/WEB-INF/hibernate.cfg.xml</value>
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>	
+	</bean>  -->          
+	
+	<!-- 配置事务管理器 -->
+	<!-- <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>	
+	</bean> -->
+	
+	<!-- 配置事务的传播特性 -->
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="register" propagation="REQUIRED"/>
+
+			<tx:method name="get*" propagation="REQUIRED"/>
+			<tx:method name="withDrawals*" propagation="REQUIRED"/>
+			<tx:method name="deposit*" propagation="REQUIRED"/>
+			<tx:method name="transfer*" propagation="REQUIRED"/>
+			<tx:method name="storeTransactionRecords*" propagation="REQUIRED"/>
+			<tx:method name="stateOperation" propagation="REQUIRED"/>
+			<tx:method name="*" read-only="true"/>
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice> -->
+	
+	
+	<aop:config>
+	    <!-- 那些类的哪些方法参与事务 -->
+		<!-- <aop:pointcut id="allManagerMethod" expression="execution(* com.cx.administrator.manager.*.*(..))||execution(* com.cx.bank.manager.*.*(..))"/>
+		<aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice"/> -->
+		
+		<!-- 用户权限验证 -->
+		<aop:aspect id="permissionValidation" ref="AspectHandler">
+            <aop:pointcut id="businessOperations" expression="execution(* com.cx.bank.manager.ManagerImp1.withDrawals*(..)) or 
+            execution(* com.cx.bank.manager.ManagerImp1.deposit*(..)) or execution(* com.cx.bank.manager.ManagerImp1.transfer*(..))
+            "/>
+            <!-- 无法执行advice
+            <aop:pointcut id="businessOperations" expression="execution(* com.cx.bank.action.BankBusinessAction.withDrawalsPage*(..)) or 
+            execution(* com.cx.bank.action.BankBusinessAction.depositPage*(..)) or execution(* com.cx.bank.action.BankBusinessAction.transferPage*(..))
+            "/> -->
+            <aop:before method="userRightsValidation" pointcut-ref="businessOperations"/>
+        </aop:aspect>
+        
+        <!-- 日志功能 -->
+        <!-- <aop:aspect id="log" ref="AspectHandler">
+            <aop:pointcut id="allOperationMethod" expression="execution(* com.cx.administrator.manager.*.*(..))||execution(* com.cx.bank.manager.*.*(..))
+            "/>
+            
+            <aop:before method="storageLog" pointcut-ref="allOperationMethod"/>
+        </aop:aspect> -->
+        
+	</aop:config>
+	
+	<!-- 配置切面类 -->
+    <bean id="AspectHandler" class="com.cx.bank.aspect.AspectHandler"/>
+    
+</beans>

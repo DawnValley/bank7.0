@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间 -->
+<mapper namespace="com.cx.bank.dao.OperationMapper">
+
+    <!-- 添加日志 -->
+    <insert id="addLog" parameterType="com.cx.bank.model.LogBean" useGeneratedKeys="true" keyProperty="logId">
+	    <![CDATA[
+			INSERT INTO bank_log(userName,logType,logDetail,logTime) 
+			VALUES(#{userName},#{logType},#{logDetail},#{logTime});
+	    ]]>
+    </insert>
+    
+    <!-- 返回LogBean的list集合 -->
+    <resultMap id="resultListLogs" type="com.cx.bank.model.LogBean" >
+        <id property="logId" column="logId"/>
+        <result property="userName" column="userName" />
+        <result property="logType" column="logType" />
+        <result property="logDetail" column="logDetail" />
+        <result property="logTime" column="logTime" />
+    </resultMap>
+    
+
+    <!-- 取得指定的日志记录的记录数 -->
+    <select id="selectTotalLogRecords" parameterType="com.cx.bank.model.QueryObject" resultType="long">
+        <![CDATA[
+            SELECT COUNT(*) FROM `bank_log`  
+        ]]>
+        <choose>
+            <when test="queryStr != null and queryStr != '' and type != null and type != ''" >
+	            <![CDATA[
+	                WHERE userName=#{queryStr} AND logType=#{type} 
+	            ]]>
+            </when>
+            <when test="queryStr != null and queryStr != ''">
+                <![CDATA[
+                    WHERE userName=#{queryStr} 
+                ]]>
+            </when>
+            <when test="type != null and type != ''">
+                <![CDATA[
+                    WHERE logType=#{type} 
+                ]]>
+            </when>
+        </choose>
+    </select>
+
+    <!-- 查询指定的日志记录 -->
+    <select id="selectAllLogInformation" parameterType="com.cx.bank.model.QueryObject" resultMap="resultListLogs">
+        <![CDATA[
+            SELECT * FROM `bank_log`  
+        ]]>
+        <choose>
+            <when test="queryStr != null and queryStr != '' and type != null and type != ''" >
+                <![CDATA[
+                    WHERE userName=#{queryStr} AND logType=#{type} 
+                ]]>
+            </when>
+            <when test="queryStr != null and queryStr != ''">
+                <![CDATA[
+                    WHERE userName=#{queryStr} 
+                ]]>
+            </when>
+            <when test="type != null and type != ''">
+                <![CDATA[
+                    WHERE logType=#{type} 
+                ]]>
+            </when>
+        </choose>
+        <![CDATA[
+	        ORDER BY logId 
+	        LIMIT #{pageNo},#{pageSize}
+        ]]>
+    </select>
+    
+</mapper>

@@ -17,5 +17,7 @@ MyEclipse2017+Tomcat8.5+JDK1.7+MySQL5.5
 使用MySQL数据库存储数据，数据库文件为bank_database.sql，可直接通过SQLyog、Navicat Lite for MySQL等工具直接导入数据库。
 ### 注意：
 在项目文件中，已经设置了数据库用户名为root密码为root。需要使用不同的用户名密码时，可修改bank7.0\WebRoot\WEB-INF\applicationContext-common.xml中的<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">的配置，对数据库连接进行修改。
+## 账号设置
+管理员账户默认用户名为1，密码为1，仅使用文件存储。默认用户名分别为1、2、3、4、5，密码也分别为1、2、3、4、5。可以注册普通用户，不可以注册管理员账户。
 ## 历史版本
 参见历史版本介绍
